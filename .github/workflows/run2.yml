@@ -40,5 +40,5 @@ jobs:
         python3 main.py <<EOF
         ${user}
         ${pwd}
-        ${step}
+        6000
         EOF

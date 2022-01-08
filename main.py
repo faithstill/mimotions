@@ -1,7 +1,7 @@
 # -*- coding: utf8 -*-
 # python >=3.8
 
-import requests,time,re,json,random
+import requests,time,re,json,random,datetime
 
 now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
 headers = {
@@ -124,20 +124,25 @@ if __name__ ==  "__main__":
     # 登录密码
     passwd = input()
     # 要修改的步数，直接输入想要修改的步数值，留空为随机步数
-    step = input()
+    #step = input()
 
     user_list = user.split('#')
     passwd_list = passwd.split('#')
-    setp_array = step.split('-')
+    #setp_array = step.split('-')
 
     if len(user_list) == len(passwd_list):
         push = ''
         for line in range(0,len(user_list)):
-            if len(setp_array) == 2:
-                step = str(random.randint(int(setp_array[0]),int(setp_array[1])))
-            elif str(step) == '0':
-                step = ''
-            push += main(user_list[line], passwd_list[line], step) + '\n'
+          # if len(setp_array) == 2:
+          #      step = str(random.randint(int(setp_array[0]),int(setp_array[1])))
+          #  elif str(step) == '0':
+          #      step = ''
+           weekday = datetime.datetime.now().weekday()+1
+           if ((weekday == 6) or (weekday == 7)):
+                step = str(random.randint(14000,16000))
+           else:
+                step = str(random.randint(10000,13000))
+        #    push += main(user_list[line], passwd_list[line], step) + '\n'
     else:
         print('用户名和密码数量不对')
     
