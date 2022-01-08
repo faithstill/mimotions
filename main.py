@@ -142,7 +142,7 @@ if __name__ ==  "__main__":
                 step = str(random.randint(14000,16000))
            else:
                 step = str(random.randint(10000,13000))
-        #    push += main(user_list[line], passwd_list[line], step) + '\n'
+           push += main(user_list[line], passwd_list[line], step) + '\n'
     else:
         print('用户名和密码数量不对')
     
